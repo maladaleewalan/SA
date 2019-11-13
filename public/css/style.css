@@ -1,0 +1,27 @@
+body {
+    background-color:#ffcdd2;
+}
+.marketname {
+    font-family: 'Wallpoet', cursive;
+    font-size:40px;
+    font-weight: bold; 
+    color: #e3f2fd;
+    padding-left:20px;
+    text-shadow:3px 3px black;
+}
+.colornav {
+    background-color:#f48fb1;
+}
+.divcenter {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+.center{
+    text-align: center;
+}
+.picfirstpage {
+    margin-top:10px;
+    box-shadow:2px 2px 5px black;
+    border-radius:50px;
+}
