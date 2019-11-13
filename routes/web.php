@@ -13,8 +13,11 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');;
+
 
 Route::get('/master', function() {
     return view('layouts.master');
 });
+
+Route::resource('/markets','MarketsController');

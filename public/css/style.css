@@ -2,10 +2,11 @@ body {
     background-color:#ffcdd2;
 }
 .marketname {
-    font-family: 'Wallpoet', cursive;
+    font-family: 'Baloo Bhai', cursive;
+
     font-size:40px;
     font-weight: bold; 
-    color: #e3f2fd;
+    color: #e91e63;
     padding-left:20px;
     text-shadow:3px 3px black;
 }
@@ -24,4 +25,63 @@ body {
     margin-top:10px;
     box-shadow:2px 2px 5px black;
     border-radius:50px;
+}
+.textnav {
+    margin-left:50px;
+    font-family: 'Baloo Bhai', cursive;
+    font-size:29px;
+    color:#e3f2fd;
+    text-shadow:2px 2px black;
+
+}
+
+.textnav:hover{
+    font-weight:bold;
+    background-color:#e91e63;
+    color: #e3f2fd;
+    text-shadow:3px 3px black;
+    text-decoration: none;
+}
+
+.blue {
+    color:#2196f3;
+}
+
+.thaifont {
+    font-family: 'Itim', cursive;
+}
+.dropdown {
+    font-size:20px;
+}
+
+.center{
+    text-align: center;
+}
+.divtop {
+    text-shadow:3px 3px black;
+    margin-top:30px;
+    width:100%;
+    background-color:#ffb74d;
+    text-align:center;
+    padding-bottom:5px;
+}
+.titlepage{
+    font-size: 50px;
+    color: #e3f2fd;
+}
+.icontop {
+    text-shadow:3px 3px black;
+    font-size:70px;
+    padding-top:70px;
+    color:#e91e63;
+}
+.form {
+    width:800px;
+    margin-left:20%;
+    font-size: 25px;
+    font-weight:bold;
+    margin-top:10px;
+}
+.red {
+    color:red;
 }

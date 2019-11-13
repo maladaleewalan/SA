@@ -12,7 +12,9 @@
     crossorigin="anonymous"> 
 
     <link href="https://fonts.googleapis.com/css?family=Wallpoet&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Itim&display=swap" rel="stylesheet">
+        
     <title>{{env('APP_NAME')}}</title>
 </head>
 <body>
