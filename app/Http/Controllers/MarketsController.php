@@ -60,7 +60,7 @@ class MarketsController extends Controller
         $market->endbooking = $validateData['endbooking'];
         $market->save();
 
-        return redirect()->route('home');
+        return redirect()->route('markets.index');
     }
 
     /**

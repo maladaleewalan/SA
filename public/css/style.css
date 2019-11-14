@@ -50,6 +50,9 @@ body {
 .thaifont {
     font-family: 'Itim', cursive;
 }
+.font {
+    font-family: 'Baloo Bhai', cursive;
+}
 .dropdown {
     font-size:20px;
 }
@@ -87,4 +90,28 @@ body {
 }
 .green {
     color:#43a047;
+}
+.buttonsubmit {
+    font-size:20px;
+}
+.floatright {
+    float:right;
+}
+.floatleft {
+    float:left;
+}
+.colorfont {
+    color: #e3f2fd
+}
+.divnodata{
+    margin-top:50px;
+    text-shadow:2px 2px white;
+    font-size:50px;
+    background-color:#f8bbd0;
+}
+.divinpage{
+    margin-top:20px;
+    text-shadow:2px 2px white;
+    font-size:30px;
+    background-color:#f8bbd0;
 }

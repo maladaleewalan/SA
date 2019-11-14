@@ -9,7 +9,7 @@
 
 <form action="{{route('markets.store')}}" method="post" enctype="multipart/form-data">
     @csrf
-    <div class="divcenter">
+    <div class="divcenter" style="margin-top:30px">
         <div class="form">
             <span class="thaifont">รูปผังตลาด
             <input type="file" name="picture" class="form-control-file" ></span>
@@ -47,9 +47,9 @@
         </div>
     </div>
 
-    <div class="center">
-        <button class="btn btn-success buttonsignup floatright" type="submit">Submit</button>
-        <a class="btn btn-danger buttonsignup floatleft" style="margin-left:60px;">Back</a>
+    <div class="divcenter">
+        <button class="btn btn-success buttonsubmit floatright font" type="submit">Submit</button>
+        <a class="btn btn-danger buttonsubmit floatleft font" style="color: white" href="{{route('home')}}">Back</a>
     </div>
 </form>
 

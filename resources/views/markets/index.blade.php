@@ -1,8 +1,38 @@
 @extends('layouts.master')
 
 @section('content')
+<div class="center">
+    <div class="divtop">
+        <span class="titlepage center mr-2 thaifont"><i class="fas fa-search-location icontop"></i>&nbsp;เลือกวันที่ขาย</span><br>
+    </div>
+</div>
+
+@if ($markets->first() == null) 
+<div class="divcenter center thaifont divnodata">
+    <i class="fas fa-exclamation-circle"></i><br>
+    ยังไม่มีการเปิดการจอง
+</div>
+
+@else 
 
 @foreach($markets as $market)
-<div>{{$market->datesale}}</div>
+<div class="divcenter center thaifont divinpage">
+    <img class="" src="image/{{$market->picture}}" width="60%">
+<br>
+    <span>วันตลาดเปิด: &nbsp;{{$market->datesale}}</span>
+    <br>
+    @if ($market->startbooking <= date('Y-m-d') && $market->endbooking >= date('Y-m-d'))
+    <span class="green">status: เปิดรับการจอง</span>
+    <br><a class="btn btn-success buttonsubmit thaifont" style="color: white;text-shadow:none" href="">จอง</a>
+    @else
+    <span class="red">status: หมดเขตการจอง</span>
+    @endif
+
+
+</div>
+
+
 @endforeach
+
+@endif
 @endsection
