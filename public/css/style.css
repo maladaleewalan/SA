@@ -27,7 +27,7 @@ body {
     border-radius:50px;
 }
 .textnav {
-    margin-left:50px;
+    margin-left:20px;
     font-family: 'Baloo Bhai', cursive;
     font-size:29px;
     color:#e3f2fd;
@@ -84,4 +84,7 @@ body {
 }
 .red {
     color:red;
+}
+.green {
+    color:#43a047;
 }

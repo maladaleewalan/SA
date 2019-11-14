@@ -17,8 +17,8 @@ class CreateMarketsTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->date('datesale')->nullable();
-            $table->timestamp('startbooking')->default(now());
-            $table->timestamp('endbooking')->default(now());
+            $table->date('startbooking')->nullable();
+            $table->date('endbooking')->nullable();
             $table->string('picture',100)->default("no-image-icon-15.jpg");
         });
     }

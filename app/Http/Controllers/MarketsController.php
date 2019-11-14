@@ -14,7 +14,8 @@ class MarketsController extends Controller
      */
     public function index()
     {
-        //
+        $markets = Market::get();
+        return view('markets.index',['markets'=>$markets]);
     }
 
     /**
@@ -37,7 +38,7 @@ class MarketsController extends Controller
     {
         $validateData = $this->validate($request,[
             'picture' => 'required|image|mimes:jpeg,png,jpg,gif',
-            'datesale' => 'required|date_format:Y-m-d',
+            'datesale' => 'required',
             'startbooking' => 'required',
             'endbooking' => 'required',
         ]);
@@ -55,8 +56,11 @@ class MarketsController extends Controller
         $market->picture =  $new_image_name;
 
         $market->datesale = $validateData['datesale'];
-        
+        $market->startbooking = $validateData['startbooking'];
+        $market->endbooking = $validateData['endbooking'];
         $market->save();
+
+        return redirect()->route('home');
     }
 
     /**

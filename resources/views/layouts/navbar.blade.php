@@ -7,11 +7,11 @@
   
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="textnav" href="{{route('home')}}"><i class="fas fa-home blue"></i>&nbsp;Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item active" >
+        <a class="textnav" href="{{route('home')}}" style="margin-left:50px"><i class="fas fa-home blue"></i>&nbsp;Home </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+      <li class="nav-item active">
+        <a class="textnav" href="{{route('markets.index')}}"><i class="fas fa-mouse-pointer green"></i>&nbsp;Booking</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Pricing</a>

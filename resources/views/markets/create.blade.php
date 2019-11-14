@@ -12,7 +12,7 @@
     <div class="divcenter">
         <div class="form">
             <span class="thaifont">รูปผังตลาด
-            <input type="file" name="picture" class="form-control-file"></span>
+            <input type="file" name="picture" class="form-control-file" ></span>
             
                 @error('picture')
                     <div class="red thaifont">{{$message}}</div>
@@ -21,7 +21,7 @@
 
         <div class="form">
             <span class="thaifont">วันที่ตลาดเปิด
-                <input type="date" name="datesale"> 
+                <input type="date" name="datesale" value="{{old('datesale')}}">  
             </span>
             @error('datesale')
                 <div class="red thaifont">{{$message}}</div>
@@ -30,7 +30,7 @@
 
         <div class="form">
             <span class="thaifont">วันที่เปิดให้จอง
-                <input type="datetime-local" name="startbooking">
+                <input type="date" name="startbooking" value="{{old('startbooking')}}"> 
             </span>
             @error('startbooking')
                     <div class="red thaifont">{{$message}}</div>
@@ -38,8 +38,8 @@
         </div>
 
         <div class="form">
-            <span class="thaifont">วันที่หมดเขตการจอง
-                <input type="datetime-local" name="endbooking">
+            <span class="thaifont">วันที่ปิดการจอง
+                <input type="date" name="endbooking" value="{{old('endbooking')}}"> 
             </span>
             @error('endbooking')
                     <div class="red thaifont">{{$message}}</div>
