@@ -20,8 +20,8 @@
         </div>
 
         <div class="form">
-            <span class="thaifont">วันที่ตลาดเปิด
-                <input type="date" name="datesale" value="{{old('datesale')}}">  
+            <span class="thaifont">วันที่ตลาดเปิด&nbsp;
+                <input type="date" name="datesale" value="{{old('datesale')}}" class="form-control inputdate">  
             </span>
             @error('datesale')
                 <div class="red thaifont">{{$message}}</div>
@@ -30,7 +30,7 @@
 
         <div class="form">
             <span class="thaifont">วันที่เปิดให้จอง
-                <input type="date" name="startbooking" value="{{old('startbooking')}}"> 
+                <input type="date" name="startbooking" value="{{old('startbooking')}}" class="form-control inputdate"> 
             </span>
             @error('startbooking')
                     <div class="red thaifont">{{$message}}</div>
@@ -39,7 +39,7 @@
 
         <div class="form">
             <span class="thaifont">วันที่ปิดการจอง
-                <input type="date" name="endbooking" value="{{old('endbooking')}}"> 
+                <input type="date" name="endbooking" value="{{old('endbooking')}}" class="form-control inputdate"> 
             </span>
             @error('endbooking')
                     <div class="red thaifont">{{$message}}</div>

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light colornav">
-  <span class="marketname">abc market</span>
+  <span class="marketname">{{env('APP_NAME')}}</span>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -18,8 +18,19 @@
       </li>
     </ul>
 
+
     <ul class="navbar-nav ml-auto">
-    
+    @guest
+    <li class="nav-item active" >
+        <a class="textnav" href="{{route('login')}}" style="margin-left:50px"><i class="fas fa-sign-in-alt yellow"></i>&nbsp;login </a>
+      </li>
+      @if (Route::has('register'))
+      <li class="nav-item active">
+        <a class="textnav" href="{{route('register')}}"><i class="fas fa-user-plus orange"></i>&nbsp;register</a>
+      </li>
+      @endif
+      @else
+
 
       <li class="nav-item dropdown">
         <a class="dropdown-toggle textnav" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -27,9 +38,17 @@
         </a>
         <div class="dropdown-menu dropdown-menu-right dropdown" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item thaifont" href="{{route('markets.create')}}">วางผังตลาด</a>
+          <a class="dropdown-item thaifont" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }} &nbsp;<i class="fas fa-sign-out-alt"></i>
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
         </div>
       </li>
-     
+      @endguest
     </ul>
 
   </div>

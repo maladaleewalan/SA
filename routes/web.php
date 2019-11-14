@@ -21,3 +21,7 @@ Route::get('/master', function() {
 });
 
 Route::resource('/markets','MarketsController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

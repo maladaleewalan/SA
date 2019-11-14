@@ -23,9 +23,14 @@
     <br>
     @if ($market->startbooking <= date('Y-m-d') && $market->endbooking >= date('Y-m-d'))
     <span class="green">status: เปิดรับการจอง</span>
+    @auth
     <br><a class="btn btn-success buttonsubmit thaifont" style="color: white;text-shadow:none" href="">จอง</a>
+    @endauth
+    @elseif ($market->startbooking > date('Y-m-d'))
+        <span class="red">status:ยังไม่ถึงเวลาจอง</span>
     @else
-    <span class="red">status: หมดเขตการจอง</span>
+        <span class="red">status: หมดเขตการจอง</span>
+
     @endif
 
 

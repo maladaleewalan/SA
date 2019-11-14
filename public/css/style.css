@@ -46,7 +46,18 @@ body {
 .blue {
     color:#2196f3;
 }
-
+.red {
+    color:red;
+}
+.green {
+    color:#43a047;
+}
+.yellow {
+    color:#ffee58;
+}
+.orange {
+    color: #f57c00;
+}
 .thaifont {
     font-family: 'Itim', cursive;
 }
@@ -85,12 +96,7 @@ body {
     font-weight:bold;
     margin-top:10px;
 }
-.red {
-    color:red;
-}
-.green {
-    color:#43a047;
-}
+
 .buttonsubmit {
     font-size:20px;
 }
@@ -114,4 +120,22 @@ body {
     text-shadow:2px 2px white;
     font-size:30px;
     background-color:#f8bbd0;
+}
+.inputdate{
+    width:300px;
+    display:inline;
+    font-size:20px;
+}
+.formlogin {
+    font-size: 30px;
+    font-weight:bold;
+    margin-top:40px;
+    color:#e91e63;
+}
+.shadowfont {
+    text-shadow:2px 2px black;
+}
+.input {
+    font-size:25px;
+    width:400px;
 }
