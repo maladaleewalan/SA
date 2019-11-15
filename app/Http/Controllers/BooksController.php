@@ -82,7 +82,7 @@ class BooksController extends Controller
 
         $book->save();
 
-        return redirect()->route('home');
+        return redirect()->route('users.show',['user'=>Auth::user()]);
 
     }
 
@@ -128,6 +128,7 @@ class BooksController extends Controller
      */
     public function destroy(Book $book)
     {
-        //
+        $book->delete();
+        return redirect()->route('users.show',['user'=>Auth::user()]);
     }
 }

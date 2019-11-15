@@ -13,9 +13,7 @@
       <li class="nav-item active">
         <a class="textnav" href="{{route('markets.index')}}"><i class="fas fa-mouse-pointer green"></i>&nbsp;Booking</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
+     
     </ul>
 
 
@@ -32,7 +30,7 @@
       @else
 
       <li class="nav-item active">
-        <a class="textnav" href=""><i class="fas fa-user-circle pinkdark"></i>&nbsp;{{Auth::user()->username}}</a>
+        <a class="textnav" href="{{route('users.show',['user'=>Auth::id()])}}"><i class="fas fa-user-circle pinkdark"></i>&nbsp;{{Auth::user()->username}}</a>
       </li>
 
 

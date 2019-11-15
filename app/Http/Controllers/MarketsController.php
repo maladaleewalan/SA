@@ -19,7 +19,7 @@ class MarketsController extends Controller
     }
     public function index()
     {
-        $markets = Market::get();
+        $markets = Market::orderBy('created_at','desc')->get();
         return view('markets.index',['markets'=>$markets]);
     }
 

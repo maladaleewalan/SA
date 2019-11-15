@@ -10,7 +10,10 @@
 <form action="{{route('books.storebookmarket',['id'=>$market->id])}}" method="post">
     @csrf
     <div class="divcenter" style="margin-top:30px">
-        
+        <div class="center">
+            <img class="" src="/image/{{$market->picture}}" width="60%">
+        </div>
+
         <div class="form">
             <span class="thaifont">เลือกโซน
             <select name="zone" class="custom-select inputdate">

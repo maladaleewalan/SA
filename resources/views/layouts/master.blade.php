@@ -27,7 +27,7 @@
     @include('layouts.navbar')
     @yield('content')
 
-
+    <br><br><br>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     
