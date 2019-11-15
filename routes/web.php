@@ -21,6 +21,10 @@ Route::get('/master', function() {
 });
 
 Route::resource('/markets','MarketsController');
+Route::resource('/books','BooksController');
+
+Route::get('/books/create/{id}','BooksController@createbookmarket')->name('books.createbookmarket');
+Route::post('/books/store/{id}','BooksController@storebookmarket')->name('books.storebookmarket');
 
 Auth::routes();
 

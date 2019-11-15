@@ -31,13 +31,21 @@
       @endif
       @else
 
+      <li class="nav-item active">
+        <a class="textnav" href=""><i class="fas fa-user-circle pinkdark"></i>&nbsp;{{Auth::user()->username}}</a>
+      </li>
+
 
       <li class="nav-item dropdown">
         <a class="dropdown-toggle textnav" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-cog"></i>
         </a>
+
         <div class="dropdown-menu dropdown-menu-right dropdown" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item thaifont" href="{{route('markets.create')}}">วางผังตลาด</a>
+          @if(Auth::user()->role == "admin")
+            <a class="dropdown-item thaifont" href="{{route('markets.create')}}">วางผังตลาด</a>
+          @endif
+
           <a class="dropdown-item thaifont" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

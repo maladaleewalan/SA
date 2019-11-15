@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class BlocksTableAddZoneId extends Migration
+class BooksTableAddZoneId extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class BlocksTableAddZoneId extends Migration
      */
     public function up()
     {
-        Schema::table('blocks', function (Blueprint $table) {
+        Schema::table('books', function (Blueprint $table) {
             $table->unsignedBigInteger('zone_id')->after('id')->default(1);
             $table->foreign('zone_id')->references('id')->on('zones')->onDelete('cascade');
         });
@@ -28,7 +28,7 @@ class BlocksTableAddZoneId extends Migration
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::table('blocks', function (Blueprint $table) {
+        Schema::table('books', function (Blueprint $table) {
             $table->dropForeign(['zone_id']);
             $table->dropColumn(['zone_id']);
         });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Market;
 use Illuminate\Http\Request;
 
+use Auth;
 class MarketsController extends Controller
 {
     /**
@@ -29,6 +30,9 @@ class MarketsController extends Controller
      */
     public function create()
     {
+        if(Auth::user()->role !== 'admin') {
+            return redirect()->route('home');
+        }
         return view('markets.create');
     }
 

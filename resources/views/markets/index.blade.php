@@ -21,16 +21,20 @@
 <br>
     <span>วันตลาดเปิด: &nbsp;{{$market->datesale}}</span>
     <br>
-    @if ($market->startbooking <= date('Y-m-d') && $market->endbooking >= date('Y-m-d'))
-    <span class="green">status: เปิดรับการจอง</span>
-    @auth
-    <br><a class="btn btn-success buttonsubmit thaifont" style="color: white;text-shadow:none" href="">จอง</a>
-    @endauth
-    @elseif ($market->startbooking > date('Y-m-d'))
-        <span class="red">status:ยังไม่ถึงเวลาจอง</span>
+    @if(Auth::user()->role == "admin")
+    
     @else
-        <span class="red">status: หมดเขตการจอง</span>
+        @if ($market->startbooking <= date('Y-m-d') && $market->endbooking >= date('Y-m-d'))
+        <span class="green">status: เปิดรับการจอง</span>
+        @auth
+        <br><a class="btn btn-success buttonsubmit thaifont shadowbox" style="color: white;text-shadow:none" href="{{route('books.createbookmarket', ['id'=>$market->id])}}">จอง</a>
+        @endauth
+        @elseif ($market->startbooking > date('Y-m-d'))
+            <span class="red">status:ยังไม่ถึงเวลาจอง</span>
+        @else
+            <span class="red">status: หมดเขตการจอง</span>
 
+        @endif
     @endif
 
 
