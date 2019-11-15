@@ -23,10 +23,15 @@ Route::get('/master', function() {
 Route::resource('/markets','MarketsController');
 Route::resource('/books','BooksController');
 Route::resource('/users','UsersController');
-
+Route::resource('/bills','BillsController');
 
 Route::get('/books/create/{id}','BooksController@createbookmarket')->name('books.createbookmarket');
 Route::post('/books/store/{id}','BooksController@storebookmarket')->name('books.storebookmarket');
+
+Route::get('/bills/create/{id}','BillsController@createbillforbook')->name('bills.createbillforbook');
+Route::post('/bills/store/{id}','BillsController@storebillforbook')->name('bills.storebillforbook');
+
+
 
 Auth::routes();
 

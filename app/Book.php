@@ -25,4 +25,9 @@ class Book extends Model
     public function zone() {
         return $this->belongsTo(Block::class);
     }
+
+    //1การจอง โอนเงินได้ หลาย ครั้ง
+    public function bills() {
+        return $this->hasMany(Bill::class);
+    }
 }

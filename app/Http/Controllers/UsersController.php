@@ -59,6 +59,7 @@ class UsersController extends Controller
         }
  
         $books = Book::where('user_id',$user->id)->orderBy('created_at','desc')->get();
+        
         return view('users.show', ['user'=>$user, 'books'=>$books]);
     }
 

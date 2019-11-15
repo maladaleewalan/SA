@@ -21,9 +21,7 @@
 <br>
     <span>วันตลาดเปิด: &nbsp;{{$market->datesale}}</span>
     <br>
-    @if(Auth::user()->role == "admin")
-    
-    @else
+    @if(Auth::user() == null || Auth::user()->role != "admin")
         @if ($market->startbooking <= date('Y-m-d') && $market->endbooking >= date('Y-m-d'))
         <span class="green">status: เปิดรับการจอง</span>
         @auth
