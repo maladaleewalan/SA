@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Zone;
 use App\Market;
+use App\Bill;
 use auth;
 
 class BooksController extends Controller
@@ -130,5 +131,18 @@ class BooksController extends Controller
     {
         $book->delete();
         return redirect()->route('users.show',['user'=>Auth::user()]);
+    }
+
+    public function confirm(request $request,$id) {
+        $book = Book::find($id);
+       $bill = Bill::where('book_id',$id)->get()->first();
+        $bill->confirm = true;
+       if ($request->input('confirm') == "หลักฐานการชำระเงินถูกต้อง") {
+           $book->status = "2";
+           $book->save();
+       }
+       $bill->save();
+      
+       return redirect()->route('bills.indexeachmarket', ['id'=> $book->market_id]);
     }
 }

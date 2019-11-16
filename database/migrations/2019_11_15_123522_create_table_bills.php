@@ -20,6 +20,7 @@ class CreateTableBills extends Migration
             $table->string('bank',30)->nullable();
             $table->string('bankaccount',10)->nullable();
             $table->string('picture',100)->nullable();
+            $table->boolean('confirm')->default(false);
         });
     }
 

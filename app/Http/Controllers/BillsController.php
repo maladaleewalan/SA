@@ -22,7 +22,17 @@ class BillsController extends Controller
 
     public function index()
     {
-        //
+        
+    }
+
+    public function indexeachmarket($id) {
+        $books = Book::where('market_id',$id)->get();
+   
+        $bills = Bill::get();
+        if(Auth::user()->role != "admin") {
+            return redirect()->route('home');
+        }
+        return view('bills.index',['bills'=>$bills,'marketid'=>$id]);
     }
 
     /**
@@ -37,6 +47,10 @@ class BillsController extends Controller
 
     public function createbillforbook($id)
     {
+        $book = Book::find($id);
+        if(Auth::user()->role == "admin" || $book->user->id != Auth::id()) {
+            return redirect()->route('home');
+        }
         $book = Book::find($id);
         $banks = ["ธนาคารกรุงศรีอยุธยา","ธนาคารกรุงเทพ","ธนาคารกรุงไทย","ธนาคารกสิกรไทย","ธนาคารเกียรตินาคิน","ธนาคารซิตี้แบงค์","ธนาคารซีไอเอ็มบี","ธนาคารทหารไทย","ธนาคารทิสโก้","ธนาคารไทยพาณิชย์","ธนาคารธนชาติ","ธนาคารเพื่อการเกษตรและสหกรณ์","ธนาคารแลนด์แอนด์เฮ้าส์","ธนาคารออมสิน","ธนาคารอาคารสงเคราะห์"];
         return view('bills.create' , ['book'=> $book,'banks'=>$banks]);

@@ -31,6 +31,10 @@ Route::post('/books/store/{id}','BooksController@storebookmarket')->name('books.
 Route::get('/bills/create/{id}','BillsController@createbillforbook')->name('bills.createbillforbook');
 Route::post('/bills/store/{id}','BillsController@storebillforbook')->name('bills.storebillforbook');
 
+Route::get('/bills/market/{id}','BillsController@indexeachmarket')->name('bills.indexeachmarket');
+
+Route::post('/books/confirm/{id}','BooksController@confirm')->name('books.confirm');
+
 
 
 Auth::routes();

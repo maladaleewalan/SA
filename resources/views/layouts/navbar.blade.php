@@ -11,7 +11,10 @@
         <a class="textnav" href="{{route('home')}}" style="margin-left:50px"><i class="fas fa-home blue"></i>&nbsp;Home </a>
       </li>
       <li class="nav-item active">
-        <a class="textnav" href="{{route('markets.index')}}"><i class="fas fa-mouse-pointer green"></i>&nbsp;Booking</a>
+        <a class="textnav" href="{{route('markets.index')}}"><i class="fas fa-mouse-pointer purple"></i>&nbsp;Booking</a>
+      </li>
+      <li class="nav-item active">
+        <a class="textnav" href=""><i class="fas fa-money-bill-wave green"></i>&nbsp;Payment</a>
       </li>
      
     </ul>
@@ -42,7 +45,6 @@
         <div class="dropdown-menu dropdown-menu-right dropdown" aria-labelledby="navbarDropdownMenuLink">
           @if(Auth::user()->role == "admin")
             <a class="dropdown-item thaifont" href="{{route('markets.create')}}">วางผังตลาด</a>
-            <a class="dropdown-item thaifont" href="">ดูรายงานการแจ้งชำระเงิน</a>
           @endif
 
           <a class="dropdown-item thaifont" href="{{ route('logout') }}"

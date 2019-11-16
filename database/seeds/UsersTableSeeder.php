@@ -23,13 +23,13 @@ class UsersTableSeeder extends Seeder
         $user->save();
 
         $user = new User;
-        $user->password = Hash::make('gam3542');
-        $user->username = "Gamyui";
-        $user->firstname = "malada";
-        $user->lastname = "leewalan";
-        $user->email = "gam3542@hotmail.com";
+        $user->password = Hash::make('somsri123');
+        $user->username = "Somsri";
+        $user->firstname = "สมศรี";
+        $user->lastname = "ศรีสมาน";
+        $user->email = "somsri123@hotmail.com";
         $user->role = "user";
-        $user->tel = "0819247887";
+        $user->tel = "0987654321";
         $user->email_verified_at = now();
         $user->save();
     }

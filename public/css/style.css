@@ -50,7 +50,7 @@ body {
     color:red;
 }
 .green {
-    color:#388e3c;
+    color:#4caf50;
 }
 .yellow {
     color:#ffee58;
@@ -60,6 +60,9 @@ body {
 }
 .pinkdark {
     color: #e91e63
+}
+.purple {
+    color: #ba68c8
 }
 .thaifont {
     font-family: 'Itim', cursive;
@@ -119,6 +122,13 @@ body {
     background-color:#f8bbd0;
 }
 .divinpage{
+    margin-top:20px;
+    text-shadow:2px 2px white;
+    font-size:30px;
+    background-color:#f8bbd0;
+}
+.divpayment{
+    width:60%;
     margin-top:20px;
     text-shadow:2px 2px white;
     font-size:30px;

@@ -33,7 +33,11 @@
             <span class="red">status: หมดเขตการจอง</span>
 
         @endif
+    
+    @else 
+    <a class="red shadowfont" href="{{route('bills.indexeachmarket', ['id'=>$market->id])}}"><i class="fas fa-arrow-circle-right"></i>&nbsp;ดูรายงานการแจ้งชำระเงิน</a>
     @endif
+
 
 
 </div>

@@ -12,13 +12,12 @@ use App\Bill; ?>
 
 <div class="divcenter font divprofile">
     <i class="fas fa-user-alt"></i>&nbsp;username:&nbsp;&nbsp;{{$user->username}}<br>
-    <i class="fas fa-address-card"></i>&nbsp;name:&nbsp;&nbsp;{{$user->firstname}}&nbsp;{{$user->lastname}}<br>
+    <i class="fas fa-address-card"></i>&nbsp;name:<span class="thaifont">&nbsp;&nbsp;{{$user->firstname}}&nbsp;{{$user->lastname}}</span><br>
     <i class="fas fa-envelope"></i>&nbsp;email:&nbsp;&nbsp;{{$user->email}}<br>
     <i class="fas fa-mobile-alt"></i>&nbsp;tel:&nbsp;&nbsp;{{$user->tel}}<br>
 </div>
 
 
-@if(Auth::user()->role != "admin")
     <div class="wordleft thaifont titlepage shadowfont"><i class="fas fa-exclamation pinkdark"></i>&nbsp;
         <span class="pinkdark">รายการจอง</span>
     </div>
@@ -31,7 +30,7 @@ use App\Bill; ?>
     @else
 
         @foreach ($books as $book)
-        <div class="divcenter thaifont divinpage">
+        <div class="divcenter thaifont divinpage" style="font-size:25px">
             <div class="row">
                 <div class="col-8 col-md-6">
                     <img class="" src="/image/{{$book->market->picture}}" width="100%">
@@ -54,13 +53,12 @@ use App\Bill; ?>
                         <span class="green">สถานะ:&nbsp;ยืนยันการชำระเงินแล้ว</span><br>
                     @endif
 
-
-                    @if($book->market->startbooking <= date('Y-m-d') && $book->market->endbooking >= date('Y-m-d'))
+                    @if($book->market->startbooking <= date('Y-m-d') && $book->market->endbooking >= date('Y-m-d') && Auth::user()->role != "admin")
                         @if($book->status == 0 || $book->status == 1)
                             <button onclick="window.location.href='{{route('bills.createbillforbook' ,['id'=>$book->id])}}'" class="green cancle inline" type="submit"><i class="fas fa-arrow-circle-right"></i>&nbsp;แจ้งการชำระเงิน</button>
-                      
+                        @endif
 
-                        @elseif ($book->status == 0)
+                        @if ($book->status == 0)
                             <form action="{{route('books.destroy', ['book' => $book->id])}}" method="post" class="inline">
                             @csrf
                             @method('DELETE')
@@ -70,12 +68,34 @@ use App\Bill; ?>
                     
                     @endif
                 </div>
+                <?php $bills = Bill::where('book_id',$book->id)->get() ?>
+                @if($bills->first() != null)
+                    <div class="divcenter center" style="font-size:25px">
+                        <span class="pinkdark shadowfont">การแจ้งการชำระเงิน</span><br>
+                        @foreach ($bills as $bill)
+                            <img class="" src="/image/{{$bill->picture}}" width="50%"><br>
+                            <span>ธนาคารที่โอน:&nbsp;{{$bill->bank}}</span><br>
+                            <span>เลขบัญชี:&nbsp;{{$bill->bankaccount}}</span><br>
+
+                            @if($bill->confirm == true)
+                                <span class="green shadowfont">สถานะการชำระเงิน:</span><br>
+                                    @if($book->status == 2)
+                                        <span class="green shadowfont">หลักฐานการชำระเงินถูกต้อง&nbsp;<i class="far fa-check-circle"></i></span>
+                                    @else
+                                        <span class="red shadowfont">หลักฐานการชำระเงินไม่ถูกต้อง&nbsp;<i class="fas fa-exclamation"></i></span>
+                                    @endif
+                                <br>
+                            @endif
+                        @endforeach
+
+                        
+                    </div>
+                @endif
             </div>
         </div>
         @endforeach
     @endif
 
-@endif
 
 
 

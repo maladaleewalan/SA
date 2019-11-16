@@ -15,7 +15,7 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
-                        <div class="form-group row font">
+                        <div class="form-group row thaifont">
                             <label for="firstname" class="col-md-4 col-form-label text-md-right shadowfont">Firstname</label>
 
                             <div class="col-md-6">
@@ -29,7 +29,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row font">
+                        <div class="form-group row thaifont">
                             <label for="lastname" class="col-md-4 col-form-label text-md-right shadowfont">Lastname</label>
 
                             <div class="col-md-6">
@@ -43,7 +43,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row font">
+                        <div class="form-group row thaifont">
                             <label for="email" class="col-md-4 col-form-label text-md-right shadowfont">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
@@ -57,7 +57,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row font">
+                        <div class="form-group row thaifont">
                             <label for="tel" class="col-md-4 col-form-label text-md-right shadowfont">Tel</label>
 
                             <div class="col-md-6">
@@ -71,7 +71,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row font">
+                        <div class="form-group row thaifont">
                             <label for="username" class="col-md-4 col-form-label text-md-right shadowfont">Username</label>
 
                             <div class="col-md-6">
@@ -85,7 +85,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row font">
+                        <div class="form-group row thaifont">
                             <label for="password" class="col-md-4 col-form-label text-md-right shadowfont">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
@@ -99,7 +99,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row font">
+                        <div class="form-group row thaifont">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right shadowfont">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
