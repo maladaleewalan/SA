@@ -1,5 +1,6 @@
 <?php use App\Zone; 
-use App\Bill; ?>
+use App\Bill; 
+use App\Block; ?>
 
 @extends('layouts.master')
 @section('content')
@@ -52,13 +53,20 @@ use App\Bill; ?>
                     @else
                         <span class="green">สถานะ:&nbsp;ยืนยันการชำระเงินแล้ว</span><br>
                     @endif
+                    <?php $block = Block::where('book_id',$book->id)->get()->first() ?> 
+                    @if($block != null)
+                        <span class="green"><i class="fas fa-map-marker-alt red shadowfont"></i>&nbsp;ล็อคที่ได้:&nbsp;{{$block->name}}</spam>
+                    @else 
+                        ล็อคที่ได้:&nbsp;<span class="red">ยังไม่แจ้ง</span><br>
+                    @endif
 
                     @if($book->market->startbooking <= date('Y-m-d') && $book->market->endbooking >= date('Y-m-d') && Auth::user()->role != "admin")
                         @if($book->status == 0 || $book->status == 1)
-                            <button onclick="window.location.href='{{route('bills.createbillforbook' ,['id'=>$book->id])}}'" class="green cancle inline" type="submit"><i class="fas fa-arrow-circle-right"></i>&nbsp;แจ้งการชำระเงิน</button>
+                            
                         @endif
 
                         @if ($book->status == 0)
+                            <button onclick="window.location.href='{{route('bills.createbillforbook' ,['id'=>$book->id])}}'" class="green cancle inline" type="submit"><i class="fas fa-arrow-circle-right"></i>&nbsp;แจ้งการชำระเงิน</button>
                             <form action="{{route('books.destroy', ['book' => $book->id])}}" method="post" class="inline">
                             @csrf
                             @method('DELETE')
@@ -81,6 +89,7 @@ use App\Bill; ?>
                                 <span class="green shadowfont">สถานะการชำระเงิน:</span><br>
                                     @if($book->status == 2)
                                         <span class="green shadowfont">หลักฐานการชำระเงินถูกต้อง&nbsp;<i class="far fa-check-circle"></i></span>
+                          
                                     @else
                                         <span class="red shadowfont">หลักฐานการชำระเงินไม่ถูกต้อง&nbsp;<i class="fas fa-exclamation"></i></span>
                                     @endif

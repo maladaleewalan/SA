@@ -14,7 +14,7 @@
         <a class="textnav" href="{{route('markets.index')}}"><i class="fas fa-mouse-pointer purple"></i>&nbsp;Booking</a>
       </li>
       <li class="nav-item active">
-        <a class="textnav" href=""><i class="fas fa-money-bill-wave green"></i>&nbsp;Payment</a>
+        <a class="textnav" href="#"  onclick="document.getElementById('channelpay').style.display='block'"><i class="fas fa-money-bill-wave green"></i>&nbsp;Payment</a>
       </li>
      
     </ul>
@@ -62,3 +62,27 @@
 
   </div>
 </nav>
+
+<div id="channelpay" class="w3-modal">
+    <div class="w3-modal-content"  style="width:40%;">
+      <header class="w3-container colornav"> 
+        <span onclick="document.getElementById('channelpay').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+        <h2 class="thaifont pinkdark shadowfont bold">ช่องทางการชำระเงิน</h2>
+      </header>
+      <div class="w3-container" style="background-color:#ffcdd2;">
+        <div class="row">
+          <div class="col-sm-6" style="margin-top:10px;">
+            <img src="{{url('image/1200px-Siam_Commercial_Bank_(logo).svg.png')}}" width=100%>
+
+          </div>
+          <div class="col-sm-6 thaifont" style="font-size:25px;">
+            ชื่อ: ณัฐรุจา ปงปิงกา<br>ธนาคารไทยพาณิชย์<br>เลขบัญชี: 235-271032-9</div>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Block;
 use Illuminate\Http\Request;
 
+use App\Book;
 class BlocksController extends Controller
 {
     /**
@@ -25,6 +26,18 @@ class BlocksController extends Controller
     public function create()
     {
         //
+    }
+
+    public function createforbook(request $request,$id) {
+        $validateData = $this->validate($request,[
+            'block' => ['required','max:5']
+        ]);
+        $book = Book::find($id);
+        $block = new block;
+        $block->book_id = $id;
+        $block->name = $validateData['block'];
+        $block->save();
+        return redirect()->route('bills.indexeachmarket',['id'=>$book->market_id]);
     }
 
     /**

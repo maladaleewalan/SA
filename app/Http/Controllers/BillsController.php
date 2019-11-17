@@ -32,6 +32,8 @@ class BillsController extends Controller
         if(Auth::user()->role != "admin") {
             return redirect()->route('home');
         }
+
+
         return view('bills.index',['bills'=>$bills,'marketid'=>$id]);
     }
 

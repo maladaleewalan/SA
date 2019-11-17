@@ -176,3 +176,12 @@ body {
     font-size:20px;
     font-weight:bold;
 }
+.enterblock {
+    width:100px;
+}
+.blackgroundpink {
+    background-color:#e91e63;
+}
+.bold {
+    font-weight:bold;
+}

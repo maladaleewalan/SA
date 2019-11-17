@@ -35,6 +35,7 @@ Route::get('/bills/market/{id}','BillsController@indexeachmarket')->name('bills.
 
 Route::post('/books/confirm/{id}','BooksController@confirm')->name('books.confirm');
 
+Route::post('/blocks/create/{id}','BlocksController@createforbook')->name('blocks.createforbook');
 
 
 Auth::routes();
