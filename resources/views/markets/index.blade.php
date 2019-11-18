@@ -3,7 +3,7 @@
 @section('content')
 <div class="center">
     <div class="divtop">
-        <span class="titlepage center mr-2 thaifont"><i class="fas fa-search-location icontop"></i>&nbsp;เลือกวันที่ขาย</span><br>
+        <span class="titlepage center mr-2 thaifont"><i class="fas fa-search-location icontop"></i>&nbsp;วันที่ตลาดเปิด</span><br>
     </div>
 </div>
 

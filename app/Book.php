@@ -16,9 +16,9 @@ class Book extends Model
         return $this->belongsTo(Market::class);
     }
 
-    //1 การจอง จองได้หลายblock
+    //1 การจอง จองได้ 1 block
     public function blocks() {
-        return $this->hasMany(Block::class);
+        return $this->belongsTo(Block::class);
     }
 
     //1 การจอง จองได้zoneเดียว
@@ -26,8 +26,8 @@ class Book extends Model
         return $this->belongsTo(Block::class);
     }
 
-    //1การจอง โอนเงินได้ หลาย ครั้ง
+    //1การจอง โอนเงินได้ ครั้งเดียว
     public function bills() {
-        return $this->hasMany(Bill::class);
+        return $this->belongsto(Bill::class);
     }
 }

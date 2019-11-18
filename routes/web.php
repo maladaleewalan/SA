@@ -24,6 +24,8 @@ Route::resource('/markets','MarketsController');
 Route::resource('/books','BooksController');
 Route::resource('/users','UsersController');
 Route::resource('/bills','BillsController');
+Route::resource('/blocks','BlocksController');
+
 
 Route::get('/books/create/{id}','BooksController@createbookmarket')->name('books.createbookmarket');
 Route::post('/books/store/{id}','BooksController@storebookmarket')->name('books.storebookmarket');

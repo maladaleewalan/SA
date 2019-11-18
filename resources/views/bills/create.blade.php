@@ -3,7 +3,7 @@
 
 <div class="center">
     <div class="divtop">
-        <span class="titlepage center mr-2 thaifont"><i class="fas fa-hand-holding-usd icontop"></i>&nbsp;แจ้งโอนเงิน</span><br>
+        <span class="titlepage center mr-2 thaifont"><i class="fas fa-hand-holding-usd icontop"></i>&nbsp;แจ้งชำระเงิน</span><br>
     </div>
 </div>
 

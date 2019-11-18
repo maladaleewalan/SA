@@ -45,6 +45,9 @@
         <div class="dropdown-menu dropdown-menu-right dropdown" aria-labelledby="navbarDropdownMenuLink">
           @if(Auth::user()->role == "admin")
             <a class="dropdown-item thaifont" href="{{route('markets.create')}}">วางผังตลาด</a>
+            <a class="dropdown-item thaifont" href="{{route('bills.index')}}">รายงานสถานะการแจ้งชำะเงิน</a>
+            <a class="dropdown-item thaifont" href="{{route('blocks.index')}}">รายงานตำแหน่งแผงร้านค้า</a>
+
           @endif
 
           <a class="dropdown-item thaifont" href="{{ route('logout') }}"

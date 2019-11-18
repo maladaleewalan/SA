@@ -18,7 +18,7 @@ use App\Block; ?>
     <i class="fas fa-mobile-alt"></i>&nbsp;tel:&nbsp;&nbsp;{{$user->tel}}<br>
 </div>
 
-
+@if($user->role != "admin")
     <div class="wordleft thaifont titlepage shadowfont"><i class="fas fa-exclamation pinkdark"></i>&nbsp;
         <span class="pinkdark">รายการจอง</span>
     </div>
@@ -106,6 +106,6 @@ use App\Block; ?>
     @endif
 
 
-
+@endif
 
 @endsection

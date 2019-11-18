@@ -6,6 +6,8 @@ use App\Block;
 use Illuminate\Http\Request;
 
 use App\Book;
+use App\Market;
+use auth;
 class BlocksController extends Controller
 {
     /**
@@ -15,7 +17,13 @@ class BlocksController extends Controller
      */
     public function index()
     {
-        //
+        if(Auth::user()->role != "admin") {
+            return redirect()->route('home');
+        }
+        $markets = Market::orderBy('created_at','desc')->get();
+        $books = Book::get();
+        $blocks = Block::orderBy('name','asc')->get();
+        return view('blocks.index',['markets'=>$markets, 'books'=>$books,'blocks'=>$blocks]);
     }
 
     /**

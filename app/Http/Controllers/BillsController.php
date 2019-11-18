@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use auth;
 use App\Book;
+use App\Market;
 
 class BillsController extends Controller
 {
@@ -22,7 +23,14 @@ class BillsController extends Controller
 
     public function index()
     {
-        
+        if(Auth::user()->role != "admin") {
+            return redirect()->route('home');
+        }
+        $markets = Market::orderBy('created_at','desc')->get();
+        $books = Book::get();
+        $bills = Bill::get();
+       
+        return view('bills.index1',['markets'=>$markets,'books'=>$books,'bills'=>$bills]);
     }
 
     public function indexeachmarket($id) {
