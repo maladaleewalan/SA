@@ -16,15 +16,17 @@
 @else
 <br>
 <select class="custom-select inputdate floatright" style="margin-right:100px" onchange="location = this.value;">
-  <option>เลือกวันที่</option>
   @foreach ($markets as $market)
-    <option value="{{route('blocks.indexblockeachmarket',['id'=>$market->id])}}">{{$market->datesale}}</option>                                
+    @if($market->id == $markett->id)
+        <option selected value="{{route('blocks.indexblockeachmarket',['id'=>$market->id])}}">{{$market->datesale}}</option>       
+    @else
+        <option value="{{route('blocks.indexblockeachmarket',['id'=>$market->id])}}">{{$market->datesale}}</option>       
+    @endif                         
   @endforeach   
                  
 </select>
-@foreach ($markets as $market)
 <div class="report thaifont shadowfont pinkdark divcenter" style="width:70%">
-<span style="margin-left:5%;">วันที่เปิดขาย:&nbsp;{{$market->datesale}}</span><br>
+<span style="margin-left:5%;">วันที่เปิดขาย:&nbsp;{{$markett->datesale}}</span><br>
 <table class="table table-active fonttable" style="text-shadow:none">
   <thead>
     <tr>
@@ -40,7 +42,7 @@
   @foreach ($blocks as $block)
     <tbody>
         <tr>
-            @if($block->book->market_id == $market->id)
+            @if($block->book->market_id == $markett->id)
                 <?php $have = true;?>
                 <th scope="row">{{$i}}</th>
                 <td>{{$block->book->user->firstname}}&nbsp;&nbsp;{{$block->book->user->lastname}}</td>
@@ -70,7 +72,6 @@
 </tbody>
 </table>
 </div>
-@endforeach
 
 @endif
 

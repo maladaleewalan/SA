@@ -22,15 +22,15 @@ class UsersTableSeeder extends Seeder
         $user->email_verified_at = now();
         $user->save();
 
-        $user = new User;
-        $user->password = Hash::make('somsri123');
-        $user->username = "Somsri";
-        $user->firstname = "สมศรี";
-        $user->lastname = "ศรีสมาน";
-        $user->email = "somsri123@hotmail.com";
-        $user->role = "user";
-        $user->tel = "0987654321";
-        $user->email_verified_at = now();
-        $user->save();
+        // $user = new User;
+        // $user->password = Hash::make('kelvin123');
+        // $user->username = "Kelvin";
+        // $user->firstname = "เคลวิน";
+        // $user->lastname = "ดีดีล";
+        // $user->email = "kelvin123@hotmail.com";
+        // $user->role = "user";
+        // $user->tel = "0987654321";
+        // $user->email_verified_at = now();
+        // $user->save();
     }
 }

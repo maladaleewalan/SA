@@ -15,11 +15,12 @@ class CreateMarketsTable extends Migration
     {
         Schema::create('markets', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
             $table->date('datesale')->nullable();
             $table->date('startbooking')->nullable();
             $table->date('endbooking')->nullable();
-            $table->string('picture',100)->default("no-image-icon-15.jpg");
+            $table->string('picture',30)->default("no-image-icon-15.jpg");
+
+            $table->timestamps();
         });
     }
 

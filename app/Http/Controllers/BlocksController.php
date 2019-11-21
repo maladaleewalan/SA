@@ -15,6 +15,11 @@ class BlocksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         if(Auth::user()->role != "admin") {
@@ -24,6 +29,17 @@ class BlocksController extends Controller
         $books = Book::get();
         $blocks = Block::orderBy('name','asc')->get();
         return view('blocks.index',['markets'=>$markets, 'books'=>$books,'blocks'=>$blocks]);
+    }
+
+    public function indexblockeachmarket($id) {
+        if(Auth::user()->role != "admin") {
+            return redirect()->route('home');
+        }
+        $markets = Market::orderBy('created_at','desc')->get();
+        $books = Book::get();
+        $blocks = Block::orderBy('name','asc')->get();
+        $markett = Market::find($id);
+        return view('blocks.indexblockearhmarket',['markets'=>$markets, 'books'=>$books,'blocks'=>$blocks,'markett'=>$markett]);
     }
 
     /**
@@ -38,7 +54,7 @@ class BlocksController extends Controller
 
     public function createforbook(request $request,$id) {
         $validateData = $this->validate($request,[
-            'block' => ['required','max:5']
+            'block' => ['required','max:5','regex:/^[A-Za-z0-9]*$/']
         ]);
         $book = Book::find($id);
         $block = new block;

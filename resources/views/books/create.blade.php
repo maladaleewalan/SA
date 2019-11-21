@@ -3,7 +3,7 @@
 
 <div class="center">
     <div class="divtop">
-        <span class="titlepage center mr-2 font"><i class="fas fa-mouse-pointer icontop"></i>&nbsp;booking block</span><br>
+        <span class="titlepage center mr-2 font"><i class="fas fa-mouse-pointer icontop"></i>&nbsp;booking</span><br>
     </div>
 </div>
 

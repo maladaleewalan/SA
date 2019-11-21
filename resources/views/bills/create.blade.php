@@ -20,7 +20,6 @@
                                     selected="selected"
                                 @endif> {{$bank}}</option>
                         @endforeach
-                        <option selected>เลือกธนาคารที่โอน</option>
 
                 </select>
             </span>

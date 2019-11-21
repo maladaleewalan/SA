@@ -19,7 +19,7 @@
                             <label for="firstname" class="col-md-4 col-form-label text-md-right shadowfont">Firstname</label>
 
                             <div class="col-md-6">
-                                <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror input" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>
+                                <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror input" name="firstname" value="{{ old('firstname') }}" autocomplete="firstname" autofocus>
 
                                 @error('firstname')
                                     <span class="invalid-feedback" role="alert">
@@ -33,7 +33,7 @@
                             <label for="lastname" class="col-md-4 col-form-label text-md-right shadowfont">Lastname</label>
 
                             <div class="col-md-6">
-                                <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror input" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
+                                <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror input" name="lastname" value="{{ old('lastname') }}" autocomplete="lastname" autofocus>
 
                                 @error('lastname')
                                     <span class="invalid-feedback" role="alert">
@@ -47,7 +47,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right shadowfont">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror input" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror input" name="email" value="{{ old('email') }}" autocomplete="email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -61,7 +61,7 @@
                             <label for="tel" class="col-md-4 col-form-label text-md-right shadowfont">Tel</label>
 
                             <div class="col-md-6">
-                                <input id="tel" type="text" class="form-control @error('tel') is-invalid @enderror input" name="tel" value="{{ old('tel') }}" required autocomplete="tel" autofocus>
+                                <input id="tel" type="text" class="form-control @error('tel') is-invalid @enderror input" name="tel" value="{{ old('tel') }}" autocomplete="tel" autofocus>
 
                                 @error('tel')
                                     <span class="invalid-feedback" role="alert">
@@ -75,7 +75,7 @@
                             <label for="username" class="col-md-4 col-form-label text-md-right shadowfont">Username</label>
 
                             <div class="col-md-6">
-                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror input" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
+                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror input" name="username" value="{{ old('username') }}" autocomplete="username" autofocus>
 
                                 @error('username')
                                     <span class="invalid-feedback" role="alert">
@@ -89,7 +89,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right shadowfont">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror input" name="password" required autocomplete="new-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror input" name="password" autocomplete="new-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -103,7 +103,7 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right shadowfont">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control input" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" class="form-control input" name="password_confirmation" autocomplete="new-password">
                             </div>
                         </div>
 

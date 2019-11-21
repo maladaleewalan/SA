@@ -15,8 +15,9 @@ class CreateBlocksTable extends Migration
     {
         Schema::create('blocks', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name',24)->default("");
+
             $table->timestamps();
-            $table->string('name',5)->default("");
         });
     }
 

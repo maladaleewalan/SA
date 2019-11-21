@@ -1,34 +1,35 @@
 @extends('layouts.master')
-
 @section('content')
+
 <div class="center">
     <div class="divtop">
         <span class="titlepage center mr-2 thaifont"><i class="fas fa-search-location icontop"></i>&nbsp;วันที่ตลาดเปิด</span><br>
     </div>
 </div>
-
-@if ($markets->first() == null) 
+@if($markets->first() == null) 
 <div class="divcenter center thaifont divnodata">
     <i class="fas fa-exclamation-circle"></i><br>
     ยังไม่มีการเปิดการจอง
 </div>
+@else
 
-@else 
 <br>
 <select class="custom-select inputdate floatright" style="margin-right:100px" onchange="location = this.value;">    
-    <option>เลือกวันที่</option>
-  @foreach ($markets as $market)
-        <option value="{{route('markets.show',['market'=>$market])}}">{{$market->datesale}}</option>
-    
-                       
+
+  @foreach ($markets as $markett)
+    @if($markett->id == $market->id)
+        <option selected value="{{route('markets.show',['market'=>$markett])}}">{{$markett->datesale}}</option>
+    @else
+        <option value="{{route('markets.show',['market'=>$markett])}}">{{$markett->datesale}}</option> 
+    @endif                   
   @endforeach   
                   
 </select>
 <br><br>
 
-@foreach($markets as $market)
+
 <div class="divcenter center thaifont divinpage">
-    <img class="" src="image/{{$market->picture}}" width="60%">
+    <img class="" src="/image/{{$market->picture}}" width="60%">
 <br>
     <span>วันตลาดเปิด: &nbsp;{{$market->datesale}}</span>
     <br>
@@ -53,8 +54,8 @@
 
 </div>
 
-
-@endforeach
-
 @endif
+
+
+
 @endsection

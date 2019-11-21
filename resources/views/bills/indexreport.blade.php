@@ -14,6 +14,16 @@
     ยังไม่มีการเปิดการจอง
 </div>
 @else
+<br>
+<select class="custom-select inputdate floatright" style="margin-right:100px" onchange="location = this.value;">
+  <option>เลือกวันที่</option>
+  @foreach ($markets as $market)
+    <option value="{{route('bills.indexreporteachmarket',['id'=>$market->id])}}">{{$market->datesale}}</option>
+                                     
+  @endforeach   
+                 
+</select>
+
 @foreach ($markets as $market)
 <div class="report thaifont shadowfont pinkdark divcenter">
 <span style="margin-left:5%;">วันที่เปิดขาย:&nbsp;{{$market->datesale}}</span><br>

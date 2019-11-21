@@ -30,7 +30,19 @@ class BillsController extends Controller
         $books = Book::get();
         $bills = Bill::get();
        
-        return view('bills.index1',['markets'=>$markets,'books'=>$books,'bills'=>$bills]);
+        return view('bills.indexreport',['markets'=>$markets,'books'=>$books,'bills'=>$bills]);
+    }
+
+    public function indexreporteachmarket($id)
+    {
+        if(Auth::user()->role != "admin") {
+            return redirect()->route('home');
+        }
+        $markets = Market::orderBy('created_at','desc')->get();
+        $books = Book::get();
+        $bills = Bill::get();
+        $markett = Market::find($id);
+        return view('bills.indexreporteachmarket',['markets'=>$markets,'books'=>$books,'bills'=>$bills,'markett'=>$markett]);
     }
 
     public function indexeachmarket($id) {
@@ -62,7 +74,7 @@ class BillsController extends Controller
             return redirect()->route('home');
         }
         $book = Book::find($id);
-        $banks = ["ธนาคารกรุงศรีอยุธยา","ธนาคารกรุงเทพ","ธนาคารกรุงไทย","ธนาคารกสิกรไทย","ธนาคารเกียรตินาคิน","ธนาคารซิตี้แบงค์","ธนาคารซีไอเอ็มบี","ธนาคารทหารไทย","ธนาคารทิสโก้","ธนาคารไทยพาณิชย์","ธนาคารธนชาติ","ธนาคารเพื่อการเกษตรและสหกรณ์","ธนาคารแลนด์แอนด์เฮ้าส์","ธนาคารออมสิน","ธนาคารอาคารสงเคราะห์"];
+        $banks = ["ธนาคารกรุงศรีอยุธยา","ธนาคารกรุงเทพ","ธนาคารกรุงไทย","ธนาคารกสิกรไทย","ธนาคารเกียรตินาคิน","ธนาคารซิตี้แบงค์","ธนาคารซีไอเอ็มบี","ธนาคารทหารไทย","ธนาคารทิสโก้","ธนาคารไทยพาณิชย์","ธนาคารธนชาติ","ธนาคารเพื่อการเกษตรและสหกรณ์","ธนาคารแลนด์แอนด์เฮ้าส์","ธนาคารออมสิน"];
         return view('bills.create' , ['book'=> $book,'banks'=>$banks]);
     }
 
@@ -81,7 +93,7 @@ class BillsController extends Controller
     {
         $validateData = $this->validate($request,[
             'picture' => 'required|image|mimes:jpeg,png,jpg,gif',
-            'bankaccount' => ['required','min:7','max:20'],
+            'bankaccount' => ['required','min:7','max:16','regex:/^[0-9]*$/'],
         ]);
 
         $bill = new Bill;

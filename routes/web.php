@@ -26,7 +26,6 @@ Route::resource('/users','UsersController');
 Route::resource('/bills','BillsController');
 Route::resource('/blocks','BlocksController');
 
-
 Route::get('/books/create/{id}','BooksController@createbookmarket')->name('books.createbookmarket');
 Route::post('/books/store/{id}','BooksController@storebookmarket')->name('books.storebookmarket');
 
@@ -34,11 +33,13 @@ Route::get('/bills/create/{id}','BillsController@createbillforbook')->name('bill
 Route::post('/bills/store/{id}','BillsController@storebillforbook')->name('bills.storebillforbook');
 
 Route::get('/bills/market/{id}','BillsController@indexeachmarket')->name('bills.indexeachmarket');
+Route::get('/bills/report/market/{id}','BillsController@indexreporteachmarket')->name('bills.indexreporteachmarket');
+
+Route::get('/blocks/market/{id}','BlocksController@indexblockeachmarket')->name('blocks.indexblockeachmarket');
+
 
 Route::post('/books/confirm/{id}','BooksController@confirm')->name('books.confirm');
-
 Route::post('/blocks/create/{id}','BlocksController@createforbook')->name('blocks.createforbook');
-
 
 Auth::routes();
 

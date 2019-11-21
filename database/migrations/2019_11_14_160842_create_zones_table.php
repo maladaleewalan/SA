@@ -15,9 +15,10 @@ class CreateZonesTable extends Migration
     {
         Schema::create('zones', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
-            $table->string('name',10)->default('');
+            $table->string('name',10)->default('')->unique();
             $table->bigInteger('cost')->default(0);
+
+            $table->timestamps();
         });
     }
 

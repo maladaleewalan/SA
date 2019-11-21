@@ -15,12 +15,13 @@ class CreateTableBills extends Migration
     {
         Schema::create('bills', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
             $table->date('datebill')->nullable();
             $table->string('bank',30)->nullable();
-            $table->string('bankaccount',10)->nullable();
-            $table->string('picture',100)->nullable();
+            $table->string('bankaccount',16)->nullable();
+            $table->string('picture',30)->nullable();
             $table->boolean('confirm')->default(false);
+
+            $table->timestamps();
         });
     }
 

@@ -15,13 +15,15 @@ class MarketsController extends Controller
      */
 
     public function __construct() {
-        $this->middleware('auth')->except(['index']);
+        $this->middleware('auth')->except(['index','show']);
     }
     public function index()
     {
         $markets = Market::orderBy('created_at','desc')->get();
         return view('markets.index',['markets'=>$markets]);
     }
+
+   
 
     /**
      * Show the form for creating a new resource.
@@ -46,9 +48,9 @@ class MarketsController extends Controller
     {
         $validateData = $this->validate($request,[
             'picture' => 'required|image|mimes:jpeg,png,jpg,gif',
-            'datesale' => 'required',
-            'startbooking' => 'required',
-            'endbooking' => 'required',
+            'datesale' => 'required|after:endbooking',
+            'startbooking' => 'required|after:yesterday',
+            'endbooking' => 'required|after:startbooking',
         ]);
 
         $market = new Market;
@@ -79,7 +81,8 @@ class MarketsController extends Controller
      */
     public function show(Market $market)
     {
-        //
+        $markets = Market::orderBy('created_at','desc')->get();
+        return view('markets.show',['markets'=>$markets,'market'=>$market]);
     }
 
     /**
