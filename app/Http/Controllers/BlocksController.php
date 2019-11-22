@@ -54,7 +54,7 @@ class BlocksController extends Controller
 
     public function createforbook(request $request,$id) {
         $validateData = $this->validate($request,[
-            'block' => ['required','max:5','regex:/^[A-Za-z0-9]*$/']
+            'block' => ['required','max:12','regex:/^[A-Ca-c0-9]*$/']
         ]);
         $book = Book::find($id);
         $block = new block;

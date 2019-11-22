@@ -44,3 +44,5 @@ Route::post('/blocks/create/{id}','BlocksController@createforbook')->name('block
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
