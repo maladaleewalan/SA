@@ -27,7 +27,7 @@ class Book extends Model
     }
 
     //1การจอง โอนเงินได้ ครั้งเดียว
-    public function bills() {
-        return $this->belongsto(Bill::class);
+    public function bill() {
+        return $this-belongTo(Bill::class);
     }
 }

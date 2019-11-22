@@ -82,6 +82,11 @@ use App\Block; ?>
                         <span class="pinkdark shadowfont">การแจ้งการชำระเงิน</span><br>
                         @foreach ($bills as $bill)
                             <img class="" src="/image/{{$bill->picture}}" width="50%"><br>
+                            @if($book->status != 2)
+                            <button class="red cancle" style="font-size:20px;" onclick="window.location.href='{{route('bills.edit',['bill'=>$bill->id])}}'">
+                                <i class="fas fa-edit"></i>แก้ไข
+                            </button><br>
+                            @endif
                             <span>ธนาคารที่โอน:&nbsp;{{$bill->bank}}</span><br>
                             <span>เลขบัญชี:&nbsp;{{$bill->bankaccount}}</span><br>
 

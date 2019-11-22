@@ -140,7 +140,13 @@ class BillsController extends Controller
      */
     public function edit(Bill $bill)
     {
-        //
+       
+        if(Auth::id() !== $bill->book->user->id && $bill->book->status == "2") {
+            return redirect()->route('users.show',['user'=>$Auth::user()]);
+        }
+        
+        $banks = ["ธนาคารกรุงศรีอยุธยา","ธนาคารกรุงเทพ","ธนาคารกรุงไทย","ธนาคารกสิกรไทย","ธนาคารเกียรตินาคิน","ธนาคารซิตี้แบงค์","ธนาคารซีไอเอ็มบี","ธนาคารทหารไทย","ธนาคารทิสโก้","ธนาคารไทยพาณิชย์","ธนาคารธนชาติ","ธนาคารเพื่อการเกษตรและสหกรณ์","ธนาคารแลนด์แอนด์เฮ้าส์","ธนาคารออมสิน"];
+        return view('bills.edit',['bill' => $bill,'banks'=>$banks]);
     }
 
     /**
@@ -152,7 +158,36 @@ class BillsController extends Controller
      */
     public function update(Request $request, Bill $bill)
     {
-        //
+        $validateData = $this->validate($request,[
+            'picture' => 'image|mimes:jpeg,png,jpg,gif',
+            'bankaccount' => ['required','min:7','max:16','regex:/^[0-9]*$/'],
+        ]);
+
+
+        if($_FILES['picture']['name'] == null) {
+            $bill->picture = $bill->picture;
+        } else {
+
+            $picture = $bill->picture;
+            @unlink('image/'. $picture);   //ลบรูปเก่าออกจาก folder
+
+            $ext = pathinfo(basename($_FILES['picture']['name']),PATHINFO_EXTENSION);   //ดึงนามสกุลจากไฟล์ที่โหลดมา
+            $new_image_name = 'img_'. uniqid() . "." . $ext;    //สุ่มชื่อไฟล์ใหม่ เป็นสตริงไม่ซ้ำ
+            $image_path = "image/";      //folder image
+            $upload_path = $image_path . $new_image_name;
+            //uploading
+            $success = move_uploaded_file($_FILES['picture']['tmp_name'],$upload_path);  //เอามาใส่ในupload path
+      
+            //เพิ่มชื่อรูปภาพใหม่ลงฐานข้อมูล
+            $bill->picture = $new_image_name;
+        }
+
+        $bill->bank =  $request->input('bank');
+        $bill->bankaccount = $validateData['bankaccount'];
+        $bill->save();
+        
+
+        return redirect()->route('users.show',['user'=>Auth::user()]);
     }
 
     /**

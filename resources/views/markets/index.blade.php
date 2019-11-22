@@ -30,7 +30,7 @@
 <div class="divcenter center thaifont divinpage">
     <img class="" src="image/{{$market->picture}}" width="60%">
 <br>
-    <span>วันตลาดเปิด: &nbsp;{{$market->datesale}}</span>
+    <span>วันตลาดเปิด: &nbsp;{{date('d-m-Y', strtotime($market->datesale))}}</span>
     <br>
     @if(Auth::user() == null || Auth::user()->role != "admin")
         @if ($market->startbooking <= date('Y-m-d') && $market->endbooking >= date('Y-m-d'))

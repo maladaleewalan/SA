@@ -7,7 +7,7 @@
     <div class="col colornav eachmenu thaifont center pinkdark shadowfont">
         <span style="font-size:35px;"><i class="fas fa-map-marker-alt red"></i>&nbsp;ตลาดนัดสัญจร<br></span>
         ที่อยู่:&nbsp;บ้านทุ่งจี้ อ.เมืองปาน จ.ลำปาง<br>
-        เวลาเปิด - ปิด:&nbsp;ทุกวันเสาร์&nbsp;14.00 น. - 20.00 น.<br>
+        เวลาเปิด - ปิด:&nbsp;14.00 น. - 20.00 น.<br>
         <i class="fas fa-mobile-alt black"></i>&nbsp;ติดต่อ:&nbsp;0899982877
     </div>
     <div class="col colornav eachmenu thaifont center pinkdark shadowfont">
